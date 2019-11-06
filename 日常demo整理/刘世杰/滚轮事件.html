@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+	body{height: 1000px;}
+	#box{width: 300px; height: 300px; background: green; font-size: 60px; color: red;}
+</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var box=document.getElementById('box');
+	// 三个参数分别是在滚轮事件触发在哪个元素，前滚执行函数，后滚执行函数
+	function gunlun_fn(obj,fn1,fn2) {
+		var str=window.navigator.userAgent.toLowerCase();
+		if (str.indexOf('firefox')!=-1) {//火狐前滚：-3 ，后滚：3
+			obj.addEventListener('DOMMouseScroll',function (ev){
+			    ev.preventDefault();//阻止默认事件
+			    if (ev.detail<0) {
+			    	// 向上滚动
+			    	fn1();
+			    } else{
+			    	// 向下滚动
+			    	fn2();
+			    };
+			},false)
+		} else{
+			obj.onmousewheel=function (ev){
+				var event=ev||window.event;
+				if (event.preventDefault) {
+					event.preventDefault();
+				} else{
+					event.returnValue=false;
+				};
+				if (event.wheelDelta>0) {//非火狐 前滚120
+			    	// 向上滚动
+			    	fn1();
+				} else{//非火狐 后滚-120
+			    	// 向下滚动
+			    	fn2();
+				};
+			}
+		};
+	}
+	// 向前滚函数
+	function rollForward() {
+		box.style.width=box.offsetWidth+20+'px';
+		box.style.height=box.offsetHeight+20+'px';
+	}
+	// 向后滚函数
+	function rollBackward() {
+		box.style.width=box.offsetWidth-20+'px';
+		box.style.height=box.offsetHeight-20+'px';
+	}
+	gunlun_fn(box,rollForward,rollBackward);
+</script>
+</html>

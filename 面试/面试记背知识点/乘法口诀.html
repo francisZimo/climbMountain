@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>标题</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+</head>
+<body>
+    
+</body>
+<script>
+    // 乘法口诀12*12
+    /*var format='</br>',sum=format;
+    for(var i=1;i<=12;i++){
+        for(var j=1;j<=i;j++){
+            sum+=i+'*'+j+"="+i*j+" ";
+
+        }
+        sum+=format;
+    }
+    document.write(sum);*/
+
+    /*// js翻转字符串
+    // 方法一
+    var str = "abcdef"; 
+    console.log( str.split("").reverse().join("") );*/
+
+    /*// js合并两个数组删除第二个元素
+    var a = [1,2,3];
+    var b = [4,5,6];
+    var c = a.concat(b);
+    c.splice(1,1);
+    console.log(c);*/
+
+    function parseQueryString(url){  
+            var params={};  
+            var arr=url.split("?");  
+            var arr1=arr[1].split("&");  
+            for(var i=0;i<arr1.length;i++){  
+                arr2=arr1[i].split('=');  
+                   
+                if(!arr2[1]){  
+                    params[arr2[0]]='true';  
+                }else{  
+                    if(params[arr2[0]]){  
+                        var arr3=[params[arr2[0]]];  
+                        arr3.push(arr2[1]);  
+                        params[arr2[0]] = arr3;  
+                    } else {  
+                        params[arr2[0]]=decodeURI(arr2[1]);  
+                    }  
+                }  
+            }  
+            console.log(params);  
+        }  
+        var url='http://www.baidu.com/?user=huixin&id=123&id=456&city=%E5%8C%97%E4%BA%AC&enabled';  
+        parseQueryString(url);
+</script>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<!-- 引入重置样式 -->
+	<link rel="stylesheet" href="./css/reset.css">
+	<!-- CDN引入jq -->
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<style>
+		/*公用部分-start*/
+		/*重置下样式*/
+			.select_moni{
+				position: relative;
+			}
+			.select_moni ul{
+				display: none;
+				position: absolute;
+				border:1px solid #9b9b9b;
+				height: auto;
+			}
+			/*清浮动*/
+			.clearP{
+				height: 0;
+				line-height: 0;
+				overflow: hidden;
+				border: 0;
+				clear: both;
+			}
+		/*公用部分-end*/
+
+		.aa.select_moni{
+			margin:150px;
+			position: relative;
+			width: 200px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+		.aa.select_moni p{
+			width: 188px;
+			height: 48px;
+			line-height: 48px;
+			background: url(./images/select.png) right center no-repeat;
+			-webkit-background-size: auto 14px;
+			background-size: auto 14px;
+		}
+		.aa.select_moni ul{
+			width: 200px;
+			top: 50px;
+			left: -1px;
+		}
+		.aa.select_moni li:hover{
+			background-color: #ccc;
+		}
+
+		.bb.select_moni{
+			margin:150px;
+			position: relative;
+			width: 150px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+		.bb.select_moni p{
+			width: 138px;
+			height: 48px;
+			line-height: 48px;
+			background: url(./images/select.png) right center no-repeat;
+			-webkit-background-size: auto 14px;
+			background-size: auto 14px;
+		}
+		.bb.select_moni ul{
+			width: 150px;
+			top: 50px;
+			left: -1px;
+		}
+		.bb.select_moni li:hover{
+			background-color: #ccc;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div class="select_moni aa">
+		<p>公司名称</p>
+		<ul>
+			<li>公司名称1</li>
+			<li>公司名称2</li>
+			<li>公司名称3</li>
+		</ul>
+	</div>
+	<div class="select_moni bb">
+		<p>公司名称</p>
+		<ul>
+			<li>公司名称1</li>
+			<li>公司名称2</li>
+			<li>公司名称3</li>
+		</ul>
+	</div>
+</body>
+<script>
+	// 解决select关于IE兼容，模拟select下拉
+	$(document).on('click',function  (event) {
+		if($(event.target).parents().hasClass('select_moni')==false){
+			$('.select_moni ul').hide();
+		}else if(event.target.tagName=='LI'){
+			$(event.target).parents('.select_moni').find('p').html($(event.target).html());
+			$('.select_moni ul').hide();
+		}else{
+			$(event.target).parents('.select_moni').find('ul').show();
+		}
+	})
+</script>
+</html>

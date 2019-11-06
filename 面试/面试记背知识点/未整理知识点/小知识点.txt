@@ -1,0 +1,67 @@
+一、
+
+大于号：&gt;	小于号：&lt;	空   格：&nbsp;
+
+solid 实线       dotted 点线        dashed 虚线
+
+cursor:pointer;   光标类型: 小手
+cursor:move;     光标类型: 十字
+
+
+二、
+
+页面布局方法：
+1、常规布局div+css
+2、float（浮动布局）	
+3、position（定位布局）	
+4、弹性布局(CSS3)
+5、百分比布局
+6、响应式布局
+
+
+三、
+浏览器：内核	前缀
+谷歌：Webkit	-Webkit-
+欧朋：Presto	-o-
+苹果：Webkit	-Webkit-
+火狐：gecko	-moz-
+IE:Trident	-ms-
+
+四、
+返回历史记录上一页
+// window.history.back();
+window.history.go(-1);
+打开网页
+window.open("js控制页面1.html","_self");
+
+
+五、
+json字符串=》json对象：var json3=eval( '('+json2+')' ) ;
+JSON.parse(jsonstr); //可以将json字符串转换成json对象 
+JSON.stringify(jsonobj); //可以将json对象转换成json对符串
+
+
+六.
+阻止默认事件
+document.oncontextmenu = function(ev) { 
+        var Event=ev||window.event;
+        if (Event.preventDefault) {
+	    	//阻止默认动作(W3C)
+	    	Event.preventDefault();
+        } else{
+			//IE中阻止默认动作
+	    	Event.returnValue=false;
+        };
+         alert('禁止使用右键！');
+    }
+阻止事件冒泡
+var Event=ev||window.event;
+if (Event.stopPropagation){
+	Event.stopPropagation();//非IE阻止事件传播
+}else{
+	Event.cancelBubble=true;//IE阻止事件冒泡
+}
+
+
+七、
+Math.random ( )=》返回介于0~1之间的随机小数

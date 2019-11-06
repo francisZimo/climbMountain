@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery文字无缝滚动效果代码</title>
+	<link type="text/css" href="css/style.css" rel="stylesheet" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<style>
+		/* CSS Document */
+		*{margin:0;padding:0;font-size:12px;}
+		body{ background:none;}
+		input,button,select,textarea{outline:none;}
+		ul,li,dl,ol{list-style:none;}
+		a{color:#666; text-decoration:none;}
+
+		.box{ width:980px; margin:0 auto;}
+		.bcon{ width:270px; border:1px solid #eee; margin:30px auto;}
+		.bcon h1{ border-bottom:1px solid #eee; padding:0 10px;}
+		.bcon h1 b{ font:bold 14px/40px '微软雅黑'; border-top:2px solid #3492D1; padding:0 8px; margin-top:-1px; display:inline-block;}
+
+		.list_lh{ height:400px; overflow:hidden;}
+		.list_lh li{ padding:10px;}
+		.list_lh li.lieven{ background:#F0F2F3;}
+		.list_lh li p{ height:24px; line-height:24px;}
+		.list_lh li p a{ float:left;}
+		.list_lh li p em{ width:80px; font:normal 12px/24px Arial; color:#FF3300; float:right; display:inline-block;}
+		.list_lh li p span{ color:#999; float:right;}
+		.list_lh li p a.btn_lh{ background:#28BD19; height:17px; line-height:17px; color:#fff; padding:0 5px; margin-top:4px; display:inline-block; float:right;}
+		.btn_lh:hover{ color:#fff; text-decoration:none;}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="bcon">
+			<h1><b>领号实时播报</b></h1>
+			<!-- 代码开始 -->
+			<div class="list_lh">
+				<ul>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">1000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">2000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">3000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">4000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">5000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">6000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">7000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">8000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">9000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">1000000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">1100000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+					<li>
+						<p><a href="http://www.16sucai.com/" target="_blank">1200000</a><a href="http://www.16sucai.com/" target="_blank" class="btn_lh">领号</a><em>获得</em></p>
+						<p><a href="http://www.16sucai.com/" target="_blank" class="a_blue">网游战江湖公测豪华礼包</a><span>17:28:05</span></p>
+					</li>
+				</ul>
+			</div>
+			<!-- 代码结束 -->
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$.fn.myScroll = function(options) {
+		var defaults = {
+			speed: 40,
+			rowHeight: 24
+		};
+
+		var opts = $.extend({}, defaults, options),
+			intId = [];
+
+		function marquee(obj, step) {
+
+			obj.find("ul").animate({
+				marginTop: '-=1'
+			}, 0, function() {
+				var s = Math.abs(parseInt($(this).css("margin-top")));
+				if(s >= step) {
+					$(this).find("li").slice(0, 1).appendTo($(this));
+					$(this).css("margin-top", 0);
+				}
+			});
+		}
+
+		this.each(function(i) {
+			var sh = opts["rowHeight"],
+				speed = opts["speed"],
+				_this = $(this);
+			intId[i] = setInterval(function() {
+				if(_this.find("ul").height() <= _this.height()) {
+					clearInterval(intId[i]);
+				} else {
+					marquee(_this, sh);
+				}
+			}, speed);
+
+			_this.hover(function() {
+				clearInterval(intId[i]);
+			}, function() {
+				intId[i] = setInterval(function() {
+					if(_this.find("ul").height() <= _this.height()) {
+						clearInterval(intId[i]);
+					} else {
+						marquee(_this, sh);
+					}
+				}, speed);
+			});
+
+		});
+	}
+
+	$(document).ready(function() {
+		$('.list_lh li:even').addClass('lieven');
+	})
+	$(function(){
+		$("div.list_lh").myScroll({
+			speed:40, //数值越大，速度越慢
+			rowHeight:68 //li的高度
+		});
+	});
+</script>
+</html>

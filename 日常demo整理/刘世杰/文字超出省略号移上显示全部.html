@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<style>
+		.box{
+			border: 1px solid #000;
+			margin: 50px auto;
+			width: 200px;
+
+			overflow:hidden;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+		}
+		.textHidden{
+			overflow:hidden;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456123456</div>
+	<div class="box">abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg</div>
+	<div class="box">啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉啦啦啦阿拉</div>
+	<div class="box">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+	<div class="box">嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿</div>
+</body>
+<script>
+	$.fn.extend({
+		textHidden:function (){
+			// var $_this=$(this);
+			// $_this.one('mouseenter', function() {
+				$(this).attr('title', $(this).html());
+			// });
+
+		}
+	})
+	$('.textHidden').textHidden();
+	$(function () {
+		$('.box').one('mouseenter', function() {
+			// alert('ss');
+			$(this).attr('title', $(this).html());
+		});
+	})
+	
+	
+// 文字超出，将内容复制给title
+/*	$.fn.extend({
+		textHidden:function (){
+			$(this).one('mouseenter', function() {
+				var thisWidth = $(this)[0].offsetWidth; // div 的宽度
+				var wordWidth = $(this)[0].scrollWidth; // 先转为js对象; 文字的宽度
+				// alert('div宽度'+thisWidth+'/文字宽度'+wordWidth);
+				if(wordWidth > thisWidth+5){
+					$(this).attr('title', $(this).html());
+				}
+
+				// $(this).attr('title', $(this).html());
+			});
+
+		}
+	})
+	$('.queryField').textHidden();*/
+// 文字超出，将内容复制给title
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="description" content="jQuery实现图片旋转效果demo >> " />
+<title>jQuery实现图片的左右旋转效果 &gt;&gt; </title>
+<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.rotate.js"></script>
+<style type="text/css">
+	.rot_box {
+		width: 512px;
+		margin: 0 auto;
+	}
+	.image_box {
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<div class="rot_box">
+		<p class="fix f9 mb10">
+			<a id="rotLeft" class="l" href="javascript:void(0);">&lt;&lt;向左转</a>
+			<a id="rotRight" class="r" href="javascript:void(0);">向右转&gt;&gt;</a>
+		</p>
+		<div id="imgBox" class="image_box">
+			<img id="rotImg" src="images/mm1.png" />
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(function() {
+		var rot = 0;
+		$("#rotRight").click(function() {
+			if(rot === 360) {
+				rot = 0;
+			}
+			rot += 90;
+			$("#rotImg").rotate(90);
+		});
+		$("#rotLeft").click(function() {
+			if(rot === -360) {
+				rot = 0;
+			}
+			rot -= 90;
+			$("#rotImg").rotate(-90);
+		});
+
+	});
+</script>
+</html>

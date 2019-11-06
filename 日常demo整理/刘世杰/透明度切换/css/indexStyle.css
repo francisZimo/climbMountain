@@ -1,0 +1,138 @@
+@charset "utf-8";
+/*=========================Reset_start==========================*/
+body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+html,body{font-family:"Times New Roman", Times, serif; font-size: 14px; text-align: left;}
+ul,ol{list-style: none;}
+img{border: 0;}
+input,select,textarea{outline:0;}
+textarea{resize:none;}
+table{border-collapse: collapse; border-spacing: 0;}
+th,strong,var,em{font-weight: normal; font-style: normal;}
+a{text-decoration: none;}
+a:link,a:visited,a:hover,a:active{text-decoration:none; border: 0px;} 
+/*==========================Reset_End===========================*/
+
+
+/*公用轮播样式-start*/
+	.lunbo{
+		position: relative;
+	}
+	.lunbo .left,
+	.lunbo .right{
+		cursor: pointer;
+		position: absolute;
+		z-index: 2;
+		/*top: ???*/
+	}
+	.lunbo .left{
+		left: 0px;
+	}
+	.lunbo .right{
+		right: 0px;
+	}
+	.lunbo .lunbo_in{
+		overflow: hidden;
+	}
+	.lunbo  li{
+		display: none;
+		position: relative;
+	}
+	.lunbo .show{
+		display: block;
+	}
+	.lunbo .lunbo_txt{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+	.lunbo,
+	.lunbo .lunbo_out,
+	.lunbo .lunbo_in,
+	.lunbo li,
+	.lunbo li .a_img img{
+		/*width: ？？？;*/
+		/*height: ？？？;*/
+	}
+/*公用轮播样式-end*/
+
+
+/*lunbo_1*/
+.lunbo_1,
+.lunbo_1 .lunbo_out,
+.lunbo_1 .lunbo_in,
+.lunbo_1 li,
+.lunbo_1 li .a_img img{
+	width: 678px;
+	height: 380px;
+}
+.lunbo_1 .left,
+.lunbo_1 .right{
+	top: 144px;
+}
+.lunbo_1 .lunbo_txt{
+	width: 678px;
+	height: 147px;
+	background:  url(./../images/FX_lunbo_txt_bj.png) 0 0 no-repeat;
+}
+.lunbo_1 .lunbo_txt p{
+	padding-top: 111px;
+	padding-left: 30px;
+}
+.lunbo_1 .lunbo_txt p a{
+	font-size: 21px;
+	color: #fff;
+}
+
+/*lunbo_2*/
+.lunbo_2,
+.lunbo_2 .lunbo_out,
+.lunbo_2 .lunbo_in,
+.lunbo_2 li,
+.lunbo_2 li .a_img img{
+	width: 878px;
+	height: 647px;
+}
+.lunbo_2 .left,
+.lunbo_2 .right{
+	top: 273px;
+}
+.lunbo_2 .lunbo_txt{
+	width: 878px;
+	height: 147px;
+	background:  url(./../images/FX_lunbo_txt_bj.png) 0 0 no-repeat;
+}
+.lunbo_2 .lunbo_txt p{
+	padding-top: 111px;
+	padding-left: 30px;
+}
+.lunbo_2 .lunbo_txt p a{
+	font-size: 21px;
+	color: #fff;
+}
+
+
+/*lunbo_3*/
+.lunbo_3,
+.lunbo_3 .lunbo_out,
+.lunbo_3 .lunbo_in,
+.lunbo_3 li,
+.lunbo_3 li .a_img img{
+	width: 280px;
+	height: 180px;
+}
+.lunbo_3 .left,
+.lunbo_3 .right{
+	top: 50px;
+}
+.lunbo_3 .lunbo_txt{
+	width: 280px;
+	/*height: 60px;*/
+	/*background:  url(./../images/FX_lunbo_txt_bj.png) 0 0 no-repeat;*/
+}
+.lunbo_3 .lunbo_txt p{
+	/*padding-top: 111px;*/
+}
+.lunbo_3 .lunbo_txt p a{
+	font-size: 18px;
+	color: #fff;
+}

@@ -1,0 +1,13 @@
+.a2{
+	width: 1024px;
+	min-width: 1024px;
+	overflow: hidden;
+	height: 200px;
+	margin: 0 auto;
+	background-color: blue;
+	text-align: center;
+	line-height: 200px;
+	font-size: 30px;
+	margin-top: 20px;
+	color: #fff;
+}
