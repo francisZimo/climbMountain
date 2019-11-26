@@ -1,0 +1,14 @@
+https://www.cnblogs.com/cy1121/p/5891904.html
+https://www.cnblogs.com/yufann/p/Browser1.html
+
+阻止默认事件
+    W3C:    event.preventDefault()
+    IE: event.returnValue=false
+    vue:    event.preventDefault();
+        @contextmenu.prevent    推荐
+阻止事件冒泡
+    W3C:    event.stopPropagation()
+    IE: event.cancelbubble=true;
+    vue:    event.cancelBubble=true;
+        @click.stop 推荐
+

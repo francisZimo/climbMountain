@@ -1,0 +1,128 @@
+vue
+vue是一套用于构建用户界面的渐进式款将，被设计为可以自底向上逐层应用。
+vue的核心库只关注图层，易于上手，便于与第三方库或既有项目整合。
+另一方面，当与“现代化的工具链”以及各种“支持类库”结合使用时，vue也完全能够为复杂的单页应用提供驱动。
+一个MVVM框架（库）、和angular类似
+------------------------------------------------------------------
+基本雏形：
+var vm=new Vue({
+	el:".box",//选择器
+	data:{//变量数据
+	},
+	methods:{//方法
+	}
+})
+------------------------------------------------------------------
+常用指令：
+v-model	一般表单元素（input）双向数据绑定
+v-for 	循环
+	v-for="value in arr"
+	track-by='索引'
+v-on:click="函数"	点击事件
+	简写=》 @click=“”
+v-show="true/false"	显示隐藏
+v-cloak	防止闪烁, 比较大段落
+v-text	文本
+v-html	节点
+------------------------------------------------------------------
+事件对象：
+	@click="show($event)"
+------------------------------------------------------------------
+事件冒泡：
+	阻止冒泡:  
+		a). ev.cancelBubble=true;
+		b). @click.stop	推荐
+------------------------------------------------------------------	
+默认行为(默认事件):
+	阻止默认行为:
+		a). ev.preventDefault();
+		b). @contextmenu.prevent	推荐
+------------------------------------------------------------------
+键盘：
+	@keydown	@keyup	ev.keyCode
+	常用键：
+		回车：@keyup.13/@keyup.enter
+		上下左右：@keyup.up/right/down/left
+------------------------------------------------------------------
+属性：
+	v-bind:src=""	简写=》:src=""
+	:width=""	:title="t"
+
+	class/style:
+	:class=""	:style=""
+	class:
+	数组=》:class="[r,h]"
+			data:{
+				r:"red",
+				h:"huise"
+			}
+	对象=》:class="{red:a, blue:false}"
+	json=》:class="json"
+			data:{
+				json:{red:a, blue:false}
+			}
+	style:(复合样式采用驼峰命名法)
+	标签内直接写=》:style="{backgroundColor: '#ccc',color:'red'}"
+	数组=》:style="[a,b]"
+			data:{
+				a:{backgroundColor: "#ccc"},
+				b:{color:'red'}
+			}
+	json=》	:style="json"
+			json:{
+				color:'red',
+				backgroundColor:'gray'
+			}
+------------------------------------------------------------------
+模板:
+	{{msg}}		数据更新模板变化
+	{{*msg}}	数据只绑定一次
+	{{{msg}}}	HTML转意输出
+------------------------------------------------------------------
+过滤器：->过滤器模板数据
+	格式：
+		{{msg| filterA}}
+		{{msg| filterA | filterB}}
+		{{msg| filterA 参数}}
+	系统提供一些过滤器：
+		uppercase	大写
+		lowercase	小写
+		capitalize	首字母大写
+		currency	钱（默认$）
+			{{12|currency 'rmb'}}
+			{{12|currency '￥'}}
+		debounce	配合事件，延迟执行
+		limitBy		限制几个
+			limitBy 1		参数(取1个)
+			limitBy	2 3		取2个 从3开始
+		filterBy	过滤数据
+			filterBy a		过滤数据(取含有a的数据)
+		orderBy	排序
+			orderBy	谁 1/-1
+			1  -> 正序
+			2  -> 倒序
+		json 显示对象
+------------------------------------------------------------------
+交互：
+	引入: vue-resouce	ajax	php
+	服务器环境(node)
+	$http	（ajax）
+	this.$http.get()/post()/jsonp()
+
+	$http=》
+	this.$http({
+		url:地址
+		data:给后台提交数据,
+		method:'get'/post/jsonp
+		jsonp:'cb' //cbName
+	});
+
+	get=》
+	this.$http.get(url,data).then(doneCallbacks, failCallbacks);
+
+	post=》
+	this.$http.post(url,data,{emulateJSON:true}).then(doneCallbacks, failCallbacks);
+
+	jsonp=》
+	this.$http.post(url,data,{jsonp:'cb'}).then(doneCallbacks, failCallbacks);
+

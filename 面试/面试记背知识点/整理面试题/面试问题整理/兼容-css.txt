@@ -1,0 +1,47 @@
+简写：
+	双倍margin
+	div空标签默认高度
+	重置样式css reset
+	透明度
+	图片间隙
+	默认行高
+	li多几像素
+	a-img色框
+	a虚线框
+	居中
+	a在低版本浏览器无法点击
+	定位层级
+
+
+
+
+1、IE6下的浮动块元素横向margin翻倍
+解决：display:inline;
+
+2、ie6下，div空标签会有默认高度
+解决：height: 0; margin: 0; padding: 0; border: 0; overflow: hidden;
+
+3、不同浏览器默认样式不同（不同浏览器默认的margin、padding不同）
+解决：重置样式
+
+4、透明度
+ie6-8不支持 opacity，只支持自己的滤镜 filter:alpha(opacity=50);
+
+5、图片之间有间隙
+解决：浮动
+
+6、ie6 7下默认有行高
+
+7、ul li和ol li中，如li不浮动，父标签又没设置高度，在ie6、ie7中会出现多出几像素的问题
+
+8、a标签里嵌套img时，不同浏览器下会出现不同颜色边框
+解决：border:none; 或者 border:0;
+
+9、IE6-8中的a标签默认带虚线框
+解决：border:none; 或者 border:0;
+
+10、居中问题   如div设置 margin: 0 auto;时已经居中，IE(ie低版本) 不行，IE需要设定body居中，首先在父级元素定义text-algin: center;这个的意思就是在父级元素内的内容居中
+
+11、a标签定义为块标签设置宽高，在低版本浏览器中无宽高类同于display：none，解决方法是定义背景色再全透明
+
+12、在低版本浏览器中，z-index不能完全决定层级，需要父集的层级也高

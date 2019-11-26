@@ -1,0 +1,236 @@
+老刘总结
+链接：http://note.youdao.com/noteshare?id=8cc29514f2f86f55c716748ed2147f15&sub=77E107C8E830445596B659C95EACC34B
+
+
+创建数组：{//[];new Array();Array.of()等同[];Array.from将伪数组转换为数组
+    方法一:{
+        var arr=[]
+        var arr=[1,2,3]
+    }
+    方法二:{
+        var arr=new Array()
+        var arr=Array()
+        var arr3 = Array(3); // [undefined,undefined,undefined]
+        var arr4 = Array(1,2,3); // [1,2,3]
+    }
+    方法三:{
+        var arr=Array.of(1,2,3)//[1,2,3]
+        var arr=Array.of(3)//[3]
+        //等同于arr=[]这种方式
+    }
+    方法四:{
+        var arr = Array.from('hello'); // ['h','e','l','l']
+        var arr=Array.from([1, 2, 3], (x) => x * x);// [1, 4, 9]
+        //定义：用于将伪数组转为真正的数组（不改变原对象，返回新的数组）。
+        //Array.from(input,map,context);    input伪数组，map类似map()方法，对每个元素进行处理后放入生成的新数组，context: 绑定map中用到的this
+    }
+}
+
+
+改变原数组的9个方法:{//pop()删尾；push()增尾;shift()删头;unshift()增头；reverse()颠倒;splice()删除替换指定下标元素;sort()排序;copyWithin数组内部覆盖;fill()填充
+    pop()删除并返回数组的最后一个元素
+    push()向数组末尾添加元素，并返回长度
+    shift()删除并返回数组第一个元素
+    unshift()想数组头部添加元素，并返回长度
+    reverse() 颠倒顺序
+    
+    splice()添加删除数组元素：{
+        splice(index,length,item) 向下标index开始，使用负数可从数组结尾处规定位置；往后数length个长度；删除/替换（删除并添加）元素，然后返回被删除的元素
+        删除或者添加的其实位置是index前的，包括arr[index]
+    }
+    sort()数组排序：{
+        //没有比较函数时，默认按字母升序，不是字符串则将元素转为字符串的万国码Unicode进行比较排序
+        // 比较函数的两个参数：{
+        //     sort的比较函数有两个默认参数，要在函数中接收这两个参数，这两个参数是数组中两个要比较的元素，通常我们用 a 和 b 接收两个将要比较的元素：
+        //     若比较函数返回值<0，那么a将排到b的前面;
+        //     若比较函数返回值=0，那么a 和 b 相对位置不变；
+        //     若比较函数返回值>0，那么b 排在a 将的前面；
+        // }
+        // 1、数组元素为数字的升序、降序:
+        sort(function  (a,b) {//升序
+            return a-b
+        })
+        sort(function  (a,b) {//降序
+            return b-a
+        })
+        // 2、数组多条件排序
+        var array = [{id:10,age:2},{id:5,age:4},{id:6,age:10},{id:9,age:6},{id:2,age:8},{id:10,age:9}];
+        array.sort(function(a,b){
+            if(a.id === b.id){// 如果id的值相等，按照age的值降序
+                return b.age - a.age
+            }else{ // 如果id的值不相等，按照id的值升序
+                return a.id - b.id
+            }
+        })
+        // [{"id":2,"age":8},{"id":5,"age":4},{"id":6,"age":10},{"id":9,"age":6},{"id":10,"age":9},{"id":10,"age":2}] 
+        // 3、自定义
+        var array = [{name:'Koro1'},{name:'Koro1'},{name:'OB'},{name:'Koro1'},{name:'OB'},{name:'OB'}];
+        array.sort(function(a,b){
+            if(a.name === 'Koro1'){// 如果name是'Koro1' 返回-1 ，-1<0 a排在b的前面
+                return -1
+            }else{ // 如果不是的话，a排在b的后面
+              return 1
+            }
+        })
+        // [{"name":"Koro1"},{"name":"Koro1"},{"name":"Koro1"},{"name":"OB"},{"name":"OB"},{"name":"OB"}] 
+    }
+    
+    ES6: copyWithin() 指定位置的成员复制到其他位置：{'发音：copy微人'
+        copyWithin(index,start,end) 向下标index开始被替换；从start开始选中要复制的内容；到end截止
+        //三个参数负值
+        //都是指下标前，包含下标指向元素的
+        //复制了几个元素，就从index开始粘贴替换几个元素，数组长度不变
+    }
+    
+    ES6: fill() 填充数组{
+        //其实就是替换
+        fill(string,start,end) 数组元素被替换成string；从start；到end截止；默认0-(length-1),同时也是最小最大值
+    }
+}
+
+
+不改变原数组的8个方法:{//拼接成字符串join()、toLocaleString()、toString();截取数组slice();合并数组cancat();查元素下标indexOf()、lastIndexOft;判断是否有某个元素includex()
+    join() 按分割符将数组元素拼接成一个字符串:{
+        let a= ['hello','world'];
+        let str=a.join(); // 'hello,world'
+        let str2=a.join('+'); // 'hello+world'
+        //默认','逗号
+        //元素是数组时，元素数组也按此处理
+        //元素数组是对象时，按[object Object]字符串处理
+    }
+    toLocaleString() 数组转字符串:{
+        //等同join(),只不过在join前先将每个元素都toLocaleString()再拼接，而且不能填写参数，默认逗号分割拼接
+        //toLocaleString的详解：https://blog.csdn.net/weixin_39749820/article/details/82869537
+    }
+    toString() 数组转字符串 不推荐{
+        //相当于不能自定义分隔符的join
+        //当数组和字符串操作的时候，js 会调用这个方法将数组自动转换成字符串
+        let a= ['调用toString','连接在我后面']+'啦啦啦'; // 调用toString,连接在我后面啦啦啦
+    }
+    slice() 浅拷贝数组的元素:{
+        slice(start,end)//从start，可负值，默认0；到end截止，不可负值，默认length-1
+        //是浅拷贝
+        //简单数据类型时可不互相影响
+        //该方法同样适用于字符串string，或者说字符串也有slice()方法。string是伪数组因而一法两用吧
+    }
+    cancat()合并两个或多个数组，返回一个新数组:{
+        var newArr=arr1.cancat(arr2,arr3)//参数数组可以多个，但至少一个,参数也可是具体的值
+        ES6扩展运算符...合并数组：{
+            var newArr=[...arr1,...arr2,1,2,3]
+            //扩展运算符（spread）是三个点（...）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
+            //类同于把参数数组[1,2]变成了1,2把数组的每一个元素都单拎出来作为一个参数
+        }
+    }
+    indexOf()查找数组是否包含某个元素，并返回下标：{
+        array.indexOf(string,startIndex)//string被查找的元素，startIndex开始查找的位置，默认0，可负，不能大于数组长度
+        //不存在，返回-1。存在返回index
+        //不能识别NAN
+        //查找匹配时严格全等===
+    }
+    lastIndexOf() 查找指定元素在数组中的最后一个位置：{
+        array.lastIndexOf(string,startIndex)//string被查找的元素，startIndex开始查找的位置，默认-1
+        //因为是查找最后出现的下标，所以是从startIndex往前（index=0）方向查的，包括下标指向元素自身
+        //类同indexOf，查找到返回下标，查找不到返回-1
+    }
+    ES7 includes() 查找数组是否包含某个元素 返回布尔{
+        includes(string,statrIndex)//string被查找的元素，startIndex开始朝招的位置，可负，默认0
+        //不再返回下标，按照查询结果返回true或者false
+        //可以查询NAN
+    }
+}
+遍历方法（12个）:{//遍历forEach();判断是否都符合every();判断是否有符合的some();过滤获取符合条件的元素filter();对数组的每个元素进行操作map();累加reduce()、reduceRight();查询符合条件的元素find();查询符合条件的元素下标findIndex();keys()&values()&entries()
+    //注：{
+        //ES5：{forEach、every 、some、 fliter、map、reduce、reduceRight}
+        //ES6：{find、findIndex、keys、values、entries}
+        //关于遍历：{
+           // 关于遍历的效率，可以看一下这篇详解JS遍历
+            //尽量不要在遍历的时候，修改后面要遍历的值
+            //尽量不要在遍历的时候修改数组的长度（删除/添加）
+        //}
+    }
+    forEach()遍历数组进行操作:{
+        array.forEach(function(item, index, arr), thisValue)//item数组的每一项元素，index是item的下标，arr数组对象本身
+        //定义: 按升序为数组中含有效值的每一项执行一次回调函数。
+        //无法中途退出循环，return只能退出当前回调
+        //不能return值出来，总是返回undefined
+        //遍历次数再第一次循环前就会确定,遍历过程中数组添加的元素不会被循环执行回调
+    }
+    every()检测数组所有元素是否都符合判断条件:{
+        array.every(function(item, index, arr), thisValue)
+        //检测所有元素，有一个不满足就返回false终止循环，都满足返回true
+    }
+    some()数组中的是否有满足判断条件的元素:{
+        array.some(function(item, index, arr), thisValue)
+        //检测所有元素，有一个满足就返回true终止循环，如果都不满足则返回false
+    }
+    filter()过滤返回满足条件的元素组成的新数组:{
+        arr.filter(function(item, index, arr), thisArg)
+    }
+    map()对数组中的每个元素进行处理，返回新的数组:{
+        new_array = arr.map(function(item, index, arr), thisArg)
+        //和上面的不同是，上面的fn都是return的布尔值，这个是return当前item处理过的新元素
+    }
+    reduce()为数组提供累加器，合并为一个值：{
+        //累计计算数组的每一个元素
+        array.reduce(function(total, item, index, arr), firstTotal)//firstTotal初始值，total累加结果
+        // 数组求和 
+        let sum = [0, 1, 2, 3].reduce(function (a, b) {
+         return a + b;
+        }, 0);
+        // 6
+        // 将二维数组转化为一维 将数组元素展开
+        let flattened = [[0, 1], [2, 3], [4, 5]].reduce(
+         (a, b) => a.concat(b),
+         []
+        );
+         // [0, 1, 2, 3, 4, 5]
+    }
+    reduceRight()从右至左累加:{
+        //类同reduce()
+    }
+    find()& findIndex() 根据条件找到数组成员:{
+        arr.find(function(item, index, arr), thisArg)//找到并返回第一个满足条件的元素，没有则返回undefined
+        arr.findIndex(function(item, index, arr), thisArg)//找到并返回第一个满足条件的元素的下标，没有则返回-1
+    }
+    ES6 keys()&values()&entries() 遍历键名、遍历键值、遍历键名+键值：{
+        //个人感觉不常用，兼容也不好
+        定义：{三个方法都返回一个新的 Array Iterator 对象，对象根据方法不同包含不同的值。}
+        语法：{
+            array.keys()
+            array.values()
+            array.entries()
+        }
+        参数：无。
+        遍历栗子(摘自ECMAScript 6 入门)：{
+            for (let index of ['a', 'b'].keys()) {
+             console.log(index);
+            }
+            // 0
+            // 1
+             
+            for (let elem of ['a', 'b'].values()) {
+             console.log(elem);
+            }
+            // 'a'
+            // 'b'
+             
+            for (let [index, elem] of ['a', 'b'].entries()) {
+             console.log(index, elem);
+            }
+            // 0 "a"
+            // 1 "b"
+        }
+        在for..of中如果遍历中途要退出，可以使用break退出循环。
+        如果不使用for...of循环，可以手动调用遍历器对象的next方法，进行遍历:{
+            let letter = ['a', 'b', 'c'];
+            let entries = letter.entries();
+            console.log(entries.next().value); // [0, 'a']
+            console.log(entries.next().value); // [1, 'b']
+            console.log(entries.next().value); // [2, 'c']
+        }
+        entries()浏览器兼容性(MDN):Chrome 38, Firefox 28,Opera 25,Safari 7.1
+        keys()浏览器兼容性(MDN):Chrome 38, Firefox 28,Opera 25,Safari 8,
+        注意:目前只有Safari 9支持,，其他浏览器未实现，babel转码器也还未实现
+    }
+}
+
