@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ary=[11,[222,[333,[4444]]],5555]
+    function flatten(arr){
+      return arr.reduce((result,item)=>{
+        return result.concat(Array.isArray(item)?flatten(item):item)
+      },[])
+    }
+    console.log(flatten(ary))
+
+    // 累计求和
+    let test=[1,2,3,4,5]
+    console.log(test.reduce((total, currentValue) => {
+      return total + currentValue
+    }),'求和')
+
+    // toString split
+    function flatten2(arr) {
+      return arr.toString().split(',').map(function(item) {
+        return Number(item);
+      })
+    }
+
+    console.log(ary.toString())
+    console.log(flatten2(ary),'flatten2')
+
+    // join & split  同上将数组转换为字符串
+    function flatten3(arr) {
+      return arr.join(',').split(',').map(function(item) {
+        return parseInt(item);
+      })
+    }
+
+    // 拓展运算符
+    [].concat(...[1,2,3,[4,5]]) // 一级扁平化 [1,2,3,4,5]
+
+    function flatten4(arr) { while(arr.some(item=>Array.isArray(item))) {
+      arr = [].concat(...arr);
+    } return arr;
+    }
+
+
+</script>
+</body>
+</html>

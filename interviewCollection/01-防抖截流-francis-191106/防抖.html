@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>debounce</title>
+</head>
+<body>
+<!--<h3>-->
+<!--    防抖：触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间-->
+<!--</h3>-->
+<!--<h4>-->
+<!--    思路：每次触发事件时都取消之前的延时调用方法-->
+<!--</h4>-->
+
+<input type="text" id="input1">
+<h3 id="inputInfo">
+    页面变化：
+</h3>
+<script>
+    function debounce(fn,delay=2000){
+      let timer=null;
+      return function(){
+        let context=this;
+        let args=arguments;
+        console.log(args,'参数')
+        timer&&clearTimeout(timer)
+        timer=setTimeout(()=>{
+          fn.apply(context,args)
+        },delay)
+      }
+    }
+    let fn=function(name){
+      let value=document.getElementById('input1').value;
+      document.getElementById('inputInfo').innerHTML=`${name}搜索了:${value}`
+    }
+    document.getElementById('input1').addEventListener('input', debounce(fn.bind(this,'二狗子'),1000),false)
+
+
+</script>
+</body>
+</html>
