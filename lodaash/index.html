@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.core.js"></script>-->
+    <script src="./lodash.js"></script>
+</head>
+<body>
+<button onclick="clickMe()">点击我</button>
+<script>
+    let  fn=()=>{
+      console.log('kuailaia')
+    }
+    let clickMe=_.throttle(fn,1000)
+</script>
+</body>
+</html>

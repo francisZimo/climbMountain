@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function arrayToTree(
+    array,
+    id = 'id',
+    parentId = 'parentId',
+    children = 'children'
+  ) {
+    if (!Array.isArray(array)) {
+      return []
+    }
+    const result = []
+    const hash = {}
+    // const data = cloneDeep(array)
+    const data=array;
+
+    data.forEach((item, index) => {
+      hash[item[id]] = data[index]
+    })
+
+
+    data.forEach(item => {
+      const hashParent = hash[item[parentId]]
+      if (hashParent) {
+        !hashParent[children] && (hashParent[children] = [])
+        hashParent[children].push(item)
+      } else {
+        result.push(item)
+      }
+    })
+    return result
+  }
+  const testData=[
+    {id:1,parentId:0,title:'1'},
+    {id:2,parentId:1,title:'1-1'},
+    {id:3,parentId:1,title:'1-2'},
+    {id:4,parentId:3,title:'1-4'},
+  ]
+  console.log(arrayToTree(testData),'--转换结果')
+  console.log(arrayToTree({}),'--转换结果2222')
+</script>
+</body>
+</html>
