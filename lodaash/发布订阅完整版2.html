@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>> `销售部`</p>
+<p>> - 销售部有很多房源，如80平的，100平的等</p>
+<p>> - 客户可以到销售部登记自己想买的房源面积，并留下姓名。到时候如果有房源，销售部就会通知客户</p>
+<p>> - 客户由于一些原因决定不买房的时候，可以取消订阅</p>
+<p>> `客户`</p>
+<p>> - 当有房源时，客户有一个接听报价的方法</p>
+</body>
+<script>
+  let event={
+    list:{},
+    cache:{},
+    add(type,client){
+      if(!this.list[type]) this.list[type]=[];
+      this.list[type].push(client);
+
+    },
+    triggle(type,price){
+      if(!this.list[type]) return;
+      for(let item of this.list[type]){
+        item.listen(type,price)
+      }
+    },
+    remove(type,client){
+      if(!this.list[type]) return;
+      let index=this.list[type].findIndex(listener=>listener===client);
+      this.list[type].splice(index,1)
+    }
+  }
+  function Client(name){
+    this.name=name;
+  }
+  Client.prototype.listen=function(type,price){
+    console.log(`${this.name}预定的${type}房源价格为${price}`);
+  }
+  let client1=new Client('王明');
+  let client2=new Client('王芳');
+
+  event.add('80',client1)
+  event.add('90',client1)
+  event.add('90',client2)
+  event.remove('90',client2)
+  event.triggle('90',300)
+
+</script>
+</html>

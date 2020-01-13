@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let obj={
+  list:{},
+  on(type,listener){
+    if(!this.list[type]){
+      this.list[type]=[]
+    }
+    this.list[type].push(listener)
+  },
+  emit(type,payload){
+    if(!this.list[type]){
+      return
+    }
+    this.list[type].forEach((listener)=>{
+      listener.listen(payload)
+    })
+  }
+}
+function Client(){
+  console.log('我想要看放假')
+}
+Client.prototype.listen=function(price){
+  console.log('当前房价'+price)
+}
+let client1=new Client()
+obj.on('housePrice',client1);
+obj.emit('housePrice','100万')
+
+
+
+</script>
+</body>
+</html>
