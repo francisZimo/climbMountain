@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+
+<script>
+    console.log('chubu')
+  $.getJSON('./1.json', function(geoJson) {
+    let data=geoJson.data;
+    let result={};
+    let count=data.length
+    for(let item in data){
+      let resultItem=result[data[item].province]
+      if(!resultItem){
+        result[data[item].province]={}
+        result[data[item].province].count=0
+        result[data[item].province].name=data[item].province
+        result[data[item].province].percent=(result[data[item].province].count/count).toFixed(4)*100+'%'
+      }
+      result[data[item].province].name=data[item].province
+      result[data[item].province].count+=1
+      result[data[item].province].percent=(result[data[item].province].count/count).toFixed(4)*100+'%'
+    }
+
+    let resultAry=[];
+    for(let item in result){
+        resultAry.push(result[item])
+    }
+    console.log(JSON.stringify(resultAry))
+  })
+
+
+</script>
+</body>
+</html>

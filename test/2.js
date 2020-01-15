@@ -1,0 +1,125 @@
+let data=[{
+  "count": 150,
+  "name": "北京",
+  "percent": "12.85%"
+}, {
+  "count": 86,
+  "name": "山东",
+  "percent": "7.37%"
+}, {
+  "count": 37,
+  "name": "吉林",
+  "percent": "3.17%"
+}, {
+  "count": 202,
+  "name": "河北",
+  "percent": "17.31%"
+}, {
+  "count": 72,
+  "name": "山西",
+  "percent": "6.17%"
+}, {
+  "count": 52,
+  "name": "辽宁",
+  "percent": "4.46%"
+}, {
+  "count": 58,
+  "name": "黑龙江",
+  "percent": "4.97%"
+}, {
+  "count": 30,
+  "name": "内蒙古",
+  "percent": "2.5700000000000003%"
+}, {
+  "count": 19,
+  "name": "天津",
+  "percent": "1.63%"
+}, {
+  "count": 126,
+  "name": "河南",
+  "percent": "10.8%"
+}, {
+  "count": 50,
+  "name": "湖南",
+  "percent": "4.279999999999999%"
+}, {
+  "count": 6,
+  "name": "广西",
+  "percent": "0.51%"
+}, {
+  "count": 45,
+  "name": "湖北",
+  "percent": "3.8600000000000003%"
+}, {
+  "count": 36,
+  "name": "陕西",
+  "percent": "3.08%"
+}, {
+  "count": 1,
+  "name": "香港",
+  "percent": "0.09%"
+}, {
+  "count": 25,
+  "name": "安徽",
+  "percent": "2.1399999999999997%"
+}, {
+  "count": 12,
+  "name": "广东",
+  "percent": "1.03%"
+}, {
+  "count": 30,
+  "name": "贵州",
+  "percent": "2.5700000000000003%"
+}, {
+  "count": 1,
+  "name": "青海",
+  "percent": "0.09%"
+}, {
+  "count": 9,
+  "name": "新疆",
+  "percent": "0.77%"
+}, {
+  "count": 21,
+  "name": "江西",
+  "percent": "1.7999999999999998%"
+}, {
+  "count": 11,
+  "name": "甘肃",
+  "percent": "0.9400000000000001%"
+}, {
+  "count": 17,
+  "name": "浙江",
+  "percent": "1.46%"
+}, {
+  "count": 19,
+  "name": "四川",
+  "percent": "1.63%"
+}, {
+  "count": 3,
+  "name": "宁夏",
+  "percent": "0.26%"
+}, {
+  "count": 20,
+  "name": "福建",
+  "percent": "1.71%"
+}, {
+  "count": 18,
+  "name": "江苏",
+  "percent": "1.54%"
+}, {
+  "count": 5,
+  "name": "云南",
+  "percent": "0.43%"
+}, {
+  "count": 1,
+  "name": "海南",
+  "percent": "0.09%"
+}, {
+  "count": 4,
+  "name": "重庆",
+  "percent": "0.33999999999999997%"
+}, {
+  "count": 1,
+  "name": "上海",
+  "percent": "0.09%"
+}]
